@@ -1,0 +1,45 @@
+{% extends 'space/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="content">
+    <div class="half">
+        <div class="small-block">
+            <h1 class="h1">Музеи и Планетарии</h1>
+
+            <a class="btn-link" href="{% url 'space:museums' %}">
+                <div class="btn">
+                    <div class="btn-elms">
+                        <span class="elm-text">Перейти</span>
+                        <!-- <img class="btn-img" src="{% static 'icons/arrow-small-right.svg' %}" alt="" > -->
+                    </div>
+                </div>
+            </a>
+
+            <p class="small-desc">Узнайте в какие музеи и планетарии можно сходить в городе Калининграде!</p>
+        </div>
+    </div>
+
+    <div class="half">
+        <div class="small-block">
+            <h1 class="h1">Онлайн Экскурсии</h1>
+
+            <a class="btn-link" href="{% url 'space:onlines' %}">
+                <div class="btn">
+                    <div class="btn-elms">
+                        <span class="elm-text">Перейти</span>
+                        <!-- <img class="btn-img" src="{% static 'icons/arrow-small-right.svg' %}" alt="" > -->
+                    </div>
+                </div>
+            </a>
+
+            <p class="small-desc">Экскурсии онлайн,которые вы можете посетить не выходя из дома!</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

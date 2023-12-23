@@ -1,0 +1,99 @@
+body {
+    background-color: #000;
+}
+
+.content {
+    height: 100%;
+    max-width: 1200px;
+    margin-bottom: 0;
+    display: flex;
+    margin: 0 auto;
+}
+.screen-split {
+    width: 2px;
+    background-color: #fff;
+}
+.half{
+    width: 50%;
+    background-color: inherit;
+    z-index: 3;
+}
+
+.small-block {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px;
+    width: 400px;
+    height: min-content;
+    background-color: #121212a6;
+    padding: 30px 50px;
+    border-radius: 20px
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100&family=Russo+One&display=swap');
+.h1 {
+    /* display: ruby; */
+    padding-bottom: 0px;
+    margin-top: 10px;
+    text-align: left;
+    color: #ef9a5a;
+    font-family: 'Raleway';
+    font-weight: 600;
+    word-break: break-word;
+}
+
+.btn-link {
+    margin-bottom: 20px;
+    text-decoration: none;
+    display: inline-block;
+}
+.btn {
+    font-family: 'Russo One', sans-serif;
+    user-select: none;
+    width: max-content;
+    padding: 20px 26px;
+    /* font-size: 16px; */
+    border: 2px solid #55253f;
+    border-radius: 3px;
+    cursor: pointer;
+    background: inherit;
+    color: #ffffffc9;
+    transition: background .5s ease;
+    transition: border-color .3s ease;
+}
+
+.btn:hover {
+    color: #fff;
+    background-color: #28121d;
+    border-color: #28121d;
+}
+.btn-elms {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.elm-text {
+    font-family: 'Kanit', sans-serif;
+    /* background-color: #28121d;
+    border-radius: 3px;
+    padding: 3px; */
+    font-size: 20px;
+    font-weight: 100;
+}
+.btn-img {
+    width: 15px;
+    margin-left: 10px;
+}
+.small-desc {
+    display: block;
+    color: #ffffff94;
+    font-family: 'Raleway';
+    font-weight: 300;
+    font-size: 18px;
+    word-break: break-word;
+}
+.h1::selection, h1::-moz-selection,
+.small-desc::selection, .small-desc::-moz-selection {
+    background-color: #55253f;
+}

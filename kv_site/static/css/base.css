@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600&display=swap');
+
+h1, p, span {
+    font-family: 'Raleway';
+}
+h1 {
+    font-weight: 600;
+}
+p, span {
+    font-weight: 300;
+}
+
+html {
+    max-height: 1000px;
+}
+
+body {
+    background-color: #000;
+    height: 100%;
+    margin: 0;
+}
+.margin {
+    margin-top: 100px;
+    z-index: 4;
+}
+.header {
+    top: 0;
+    z-index: 10;
+    position: absolute;
+    width: 100%;
+    padding: 23px 0 25px;
+    background-color: #ffffff00;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-items {
+    width: max-content;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.item {
+    padding: 0;
+    margin: 0 0 0 40px;
+}
+#main-left {
+    margin-left: 0;
+    padding: 8px 13px;
+    border: solid 2px #fff;
+    border-radius: 5px;
+    background-color: #12121248;
+    transition: border-color .4s ease;
+}
+#main-left:hover{
+    border-color: #55253f;
+}
+
+.item-link {
+    user-select: none;
+    text-decoration: none;
+    color: #dcd8d8;
+    font-family: Tahoma;
+    font-size: 20px;
+    transition: color .4s ease;
+}
+.item-link:hover {
+    color: #ef9a5a;
+}
+
+
+.stars, .twinkling {
+    position:absolute;
+    background: transparent;
+    /* z-index: 1; */
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    width:100%;
+    height:100%;
+    display:block;
+}
+  
+.stars {
+    background:#000 url(https://i.postimg.cc/hhFD7Nkf/apps-47636-13819498107583324-fb06b53a-4974-4acb-85e6-f6f363f85ab6-edec48d0-ec35-4a1f-8bf5-c455987b4a.png) repeat top center;
+    z-index: 0;
+}
+
+.twinkling {
+    background-image: url(https://i.postimg.cc/CLpNr4PF/twinkling.png);
+    animation: 2s twinkle infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes twinkle {
+    from {
+        backrgound-position: 0;
+        /* transform: translateY(0px); */
+    }
+    to {
+        background-position: -100px 0;
+        /* transform: translateY(-2000px); */
+    }
+}

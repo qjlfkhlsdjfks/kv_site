@@ -1,0 +1,22 @@
+{% extends 'space/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/place.css' %}">
+
+{% endblock %}
+
+{% block content %}
+    <div class="margin"></div>
+    <div class="card" style="background-color: {{ card.color }};">
+        <div class="title-and-img">
+            <h1 class="card-title"><span class="title-bg">{{ card.name }}</span></h1>
+            <img src="{{ card.img.url }}" alt="" class="card-img">
+        </div>
+        <p class="card-desc">{{ card.desc }}</p>
+        {% if not card.is_online %}
+        <span class="address"><span style="color: #ef9a5a;">Адресс:</span> {{ card.address }}</span>
+        {% endif %}
+    </div>
+{% endblock %}

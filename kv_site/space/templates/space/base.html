@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block css %} {% endblock %}
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <ul class="header-items">
+                    <li class="item" id="main-left"><a href="{% url 'space:index' %}" class="item-link">Главная</a></li>
+                    <li class="item"><a href="{% url 'space:museums' %}" class="item-link">Музеи & Планетарии</a></li>
+                    <li class="item"><a href="{% url 'space:onlines' %}" class="item-link">Онлайн Экскурсии</a></li>
+                </ul>
+                <ul class="header-items">
+                    <li class="item"><a href="{% url 'space:contact' %}" class="item-link">Contact</a></li>
+                    <li class="item"><a href="" class="item-link">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- <div class="" id="stars"></div>
+    <div class="" id="stars2"></div>
+    <div class="" id="stars3"></div> -->
+
+
+    
+    {% block content %} {% endblock %}
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+</body>
+</html>

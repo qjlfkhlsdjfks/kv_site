@@ -1,0 +1,29 @@
+{% extends 'space/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="margin"></div>
+    {% for card in cards %}
+        {% if card.id == min_id %}
+            <a href="{% url 'space:place' card_id=card.id %}" class="place-link">
+                <div class="card" style="background-color: {{card.color}};">
+                    <h1 class="card-title">{{ card.name }}</h1>
+                </div>
+            </a>
+        {% else %}
+            <div class="btw"></div>
+            <a href="{% url 'space:place' card_id=card.id %}" class="place-link">
+                <div class="card" style="background-color: {{card.color}};">
+                    <h1 class="card-title">{{ card.name }}</h1>
+                </div>
+            </a>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
+
+
+
