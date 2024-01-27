@@ -1,18 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600&display=swap');
 
-h1, p, span {
+h1, h2, h3, h3, h4, h5, h6, p, span, a {
     font-family: 'Raleway';
+    color: hsl(0, 0%, 100%);
+    padding: 0;
+    margin: 5px;
 }
-h1 {
+.h1 {
     font-weight: 600;
+    font-size: 40px;
+}
+.text-padding-top {
+    padding-top: 20px;
+}
+.text-margin-bottom {
+    margin-bottom: 20px;
+}
+.h2 {
+    font-weight: 500;
+    font-size: 24px;
 }
 p, span {
     font-weight: 300;
 }
 
-html {
+/* html {
     max-height: 1000px;
-}
+} */
 
 body {
     background-color: #000;
@@ -24,12 +38,22 @@ body {
     z-index: 4;
 }
 .header {
+    max-width: 1400px;
+
+    padding: 25px 0 25px;
+    margin: 20px auto;
+    border-radius: 20px;
+    
     top: 0;
-    z-index: 10;
-    position: absolute;
-    width: 100%;
-    padding: 23px 0 25px;
-    background-color: #ffffff00;
+    z-index: 1;
+    position: relative;
+    
+    background-color: #232323;
+    color: #ffffffd2;
+
+    font-family: 'Raleway';
+    font-weight: 400;
+    font-size: 22px;
 }
 .container {
     max-width: 1200px;
@@ -49,39 +73,77 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-.item {
+.header-item {
     padding: 0;
-    margin: 0 0 0 40px;
-}
-#main-left {
-    margin-left: 0;
-    padding: 8px 13px;
-    border: solid 2px #fff;
-    border-radius: 5px;
-    background-color: #12121248;
-    transition: border-color .4s ease;
-}
-#main-left:hover{
-    border-color: #55253f;
+    margin-right: 40px;
 }
 
-.item-link {
+.header-item-link {
+    font-size: inherit;
     user-select: none;
     text-decoration: none;
-    color: #dcd8d8;
-    font-family: Tahoma;
-    font-size: 20px;
     transition: color .4s ease;
+    color: inherit;
 }
-.item-link:hover {
-    color: #ef9a5a;
+.header-item-link:hover {
+    color: #fff;
 }
 
+.content {
+    position: relative;
+    max-width: 1200px;
+    background-color: transparent;
+    z-index: 1;
+    margin: 0 auto;
+}
+.grid-cols-2 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.grid-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.float {
+    width: 90%;
+    background-color: #232323;
+    border-radius: 10px;
+
+    padding: 10px 20px;
+    margin: 10px auto;
+}
+
+.btn {
+    display: flex;
+
+    background-color: #ffffffd2;
+    transition: background-color .3s ease;
+    
+    width: max-content;
+    padding: 10px 14px;
+    margin: 20px auto;
+
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.btn:hover {
+    background-color: #fff;
+}
+.btn-text {
+    font-family: 'Raleway';
+    font-weight: 400;
+    font-size: 22px;
+    color: #000;
+    text-align: center;
+}
 
 .stars, .twinkling {
     position:absolute;
     background: transparent;
-    /* z-index: 1; */
+    z-index: 0;
     top:0;
     left:0;
     right:0;

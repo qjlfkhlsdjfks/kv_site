@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'fontawesome/css/all.css' %}">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% block css %} {% endblock %}
 </head>
@@ -14,13 +15,13 @@
         <div class="container">
             <nav class="nav">
                 <ul class="header-items">
-                    <li class="item" id="main-left"><a href="{% url 'space:index' %}" class="item-link">Главная</a></li>
-                    <li class="item"><a href="{% url 'space:museums' %}" class="item-link">Музеи & Планетарии</a></li>
-                    <li class="item"><a href="{% url 'space:onlines' %}" class="item-link">Онлайн Экскурсии</a></li>
+                    <li class="header-item"><a href="{% url 'space:index' %}" class="header-item-link"><i class="fa-solid fa-house fa-2xs"></i> Главная</a></li>
+                    <li class="header-item"><a href="{% url 'space:museums' %}" class="header-item-link">Музеи / Планетарии</a></li>
+                    <li class="header-item"><a href="{% url 'space:onlines' %}" class="header-item-link">Онлайн экскурсии</a></li>
                 </ul>
                 <ul class="header-items">
-                    <li class="item"><a href="{% url 'space:contact' %}" class="item-link">Contact</a></li>
-                    <li class="item"><a href="" class="item-link">About</a></li>
+                    <li class="header-item"><a href="{% url 'space:contact' %}" class="header-item-link">Contact</a></li>
+                    <li class="header-item" style="margin-right: 0;"><a href="" class="header-item-link">About</a></li>
                 </ul>
             </nav>
         </div>
@@ -31,8 +32,11 @@
     <div class="" id="stars3"></div> -->
 
 
-    
-    {% block content %} {% endblock %}
+    <div class="content">
+        {% block content %} {% endblock %}
+    </div>
+
+    <!-- background -->
     <div class="stars"></div>
     <div class="twinkling"></div>
 </body>
