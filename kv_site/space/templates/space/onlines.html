@@ -6,24 +6,19 @@
 {% endblock %}
 
 {% block content %}
-    <div class="margin"></div>
-    {% for card in cards %}
-        {% if card.id == min_id %}
-            <a href="{% url 'space:place' card_id=card.id %}" class="place-link">
-                <div class="card" style="background-color: {{card.color}};">
-                    <h1 class="card-title">{{ card.name }}</h1>
+    <!-- <div class="grid-cols-2"> -->
+        {% for card in cards %}
+            <!-- <div class="grid-col"> -->
+                <div class="float" >
+                    <div class="inner">
+                        <h1 class="h1 underline">{{ card.name }}</h1>
+                        <span class="span ">Online</span>
+                        <a href="{% url 'space:place' card_id=card.id %}" class="btn a-link">
+                            <span class="btn-text">Подробнее <i class="fa-solid fa-arrow-right fa-2xs"></i></span>
+                        </a>
+                    </div>
                 </div>
-            </a>
-        {% else %}
-            <div class="btw"></div>
-            <a href="{% url 'space:place' card_id=card.id %}" class="place-link">
-                <div class="card" style="background-color: {{card.color}};">
-                    <h1 class="card-title">{{ card.name }}</h1>
-                </div>
-            </a>
-        {% endif %}
-    {% endfor %}
+            <!-- </div> -->
+        {% endfor %}
+    <!-- </div> -->
 {% endblock %}
-
-
-

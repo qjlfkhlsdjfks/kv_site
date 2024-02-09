@@ -6,22 +6,19 @@
 {% endblock %}
 
 {% block content %}
-    <div class="margin"></div>
+    <!-- <div class="grid-cols-2"> -->
         {% for card in cards %}
-            {% if card.id == min_id %}
-                <a href="{% url 'space:place' card_id=card.id %}" class="place-link">
-                    <div class="card">
-                        <h1 class="card-title">{{ card.name }}</h1>
+            <div class="float">
+                <div class="inner">
+                    <div class="flex">
+                        <h1 class="h1 underline">{{ card.name }}</h1>
+                        <img class="image-box" src="{{ card.img.url }}">
                     </div>
-                </a>
-
-            {% else %}
-                <div class="btw"></div>
-                <a href="{% url 'space:place' card_id=card.id %}" class="place-link">
-                    <div class="card">
-                        <h1 class="card-title">{{ card.name }}</h1>
-                    </div>
-                </a>
-            {% endif %}
+                    <a href="{% url 'space:place' card_id=card.id %}" class="btn a-link">
+                        <span class="btn-text">Подробнее <i class="fa-solid fa-arrow-right fa-2xs"></i></span>
+                    </a>
+                </div>
+            </div>
         {% endfor %}
+    <!-- </div> -->
 {% endblock %}

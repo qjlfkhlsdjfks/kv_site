@@ -6,8 +6,9 @@ from space.forms import ContactUsForm
 
 def index(request):
     context = {
-        'title': 'Главная'
+        'title': 'Главная',
     }
+
     return render(request, 'space/inedx.html', context)
 
 
@@ -19,6 +20,7 @@ def contact(request):
             return HttpResponseRedirect(reverse('space:index'))
     else:
         form = ContactUsForm()
+        
     context = {
         'title': 'Свяжитесь с нами',
         'form': form,

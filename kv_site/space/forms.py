@@ -13,7 +13,7 @@ class ContactUsForm(forms.ModelForm):
     }))
     email = forms.CharField(max_length=100, error_messages={'required': 'Заполните это поле'}, widget=forms.EmailInput(attrs={
         'class': 'input-field',
-        'placeholder': 'Имя',
+        'placeholder': 'Почта',
     }))
     about = forms.CharField(error_messages={'required': 'Заполните это поле'}, widget=forms.Textarea(attrs={
         'class': 'textarea-field',
@@ -21,7 +21,7 @@ class ContactUsForm(forms.ModelForm):
     }))
     comments = forms.CharField(error_messages={'required': 'Заполните это поле'}, widget=forms.Textarea(attrs={
         'class': 'textarea-field',
-        'placeholder': 'Коментарий',
+        'placeholder': 'Коментарии',
     }))
     class Meta:
         model = ContactUs

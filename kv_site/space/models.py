@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Card(models.Model):
     name = models.CharField(max_length=100)
     desc = models.TextField()
@@ -10,8 +11,8 @@ class Card(models.Model):
     def __str__(self) -> str:
         if self.is_online:
             return f'{self.name} | Online'
-        else:
-            return f'{self.name} | Offline'
+        
+        return f'{self.name} | Offline'
 
 
 class ContactUs(models.Model):
