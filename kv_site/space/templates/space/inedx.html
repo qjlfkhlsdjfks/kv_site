@@ -2,41 +2,59 @@
 {% load static %}
 
 {% block css %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <script defer src="{% static 'js/slider.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'css/slider.css' %}">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 {% endblock %}
 
 
 {% block content %}
-<div class="float" style="background-color: transparent; margin: 0 auto 0 0;">
-    <div class="inner">
-        <h1 class="h1 text-padding-top "><span class="c-orange">"</span>Астрономия заставляет душу смотреть вверх и ведет нас из этого мира в другой<span style="color: #ef9a5a;">"</span></h1>
-        <h1 class="h1 text-padding-top " style="text-align: right;"><span class="c-orange">(c)</span>Платон</h2>
-    </div>
-</div>
-<div class="margin-btw"></div>
-<div class="grid-cols-2">
-    <div class="grid-col">
-        <div class="float">
-            <div class="inner">
-                <h1 class="h1 text-padding-top">Музеи и  планетарии</h1>
-                <span class=" c-orange">Музеи и планетарии прямо в калининграде</span>
-                <a href="{% url 'space:museums' %}" class="btn">
-                    <span class="btn-text">Перейти <i class="fa-solid fa-link fa-2xs"></i></span>
-                </a>
-            </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var slider = new SimpleAdaptiveSlider('.slider', {
+      autoplay: true,
+      interval: 4500,
+      swipe: true,
+    });
+  });
+</script>
+
+<section class="section__slider">
+  <div class="slider-container">
+    <div class="slider">
+      <div class="slider__wrapper">
+        <div class="slider__items">
+          <div class="slider__item">
+            <div style="height: 350px; background: #3f51b5;"></div>
+          </div>
+          <div class="slider__item">
+            <div style="height: 350px; background: #607d8b;"></div>
+          </div>
+          <div class="slider__item">
+            <div style="height: 350px; background: #f44336;"></div>
+          </div>
+          <div class="slider__item">
+            <div style="height: 350px; background: #4caf50;"></div>
+          </div>
         </div>
+        <a class="slider__control slider__control_prev" href="" role="button" data-slide="prev"></a>
+        <a class="slider__control slider__control_next" href="" role="button" data-slide="next"></a>
+      </div>
     </div>
-    <div class="grid-col">
-        <div class="float">
-            <div class="inner">
-                <h1 class="h1 text-padding-top">Онлайн экскурсии</h1>
-                <span class=" c-orange">Посещайте различные мероприятия не выходя из дома</span>
-                <a href="{% url 'space:onlines' %}" class="btn">
-                    <span class="btn-text">Перейти <i class="fa-solid fa-link fa-2xs"></i></span>
-                </a>                
-            </div>
-        </div>
-    </div>
-</div>
+  </div>
+</section>
+
+<section class="section__search">
+  <div class="search">
+    <input class="search__input" type="search" placeholder="Поиск по местам">
+    <button class="search__btn" type="submit">
+      <span class="btn-text"><i class="fa-solid fa-magnifying-glass"></i></span>
+    </button>
+    <button class="button" type="submit">
+      <span class="btn-text">Фильтры</span>
+    </button>
+  </div>
+
+</section>
 {% endblock %}
 

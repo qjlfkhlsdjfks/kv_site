@@ -16,6 +16,7 @@
         <div class="container">
             <nav class="nav">
                 <ul class="header-items">
+                    <li class="header-item img-item"><a href="{% url 'space:index' %}"><img class="small-img" src="{% static 'images/logo.png' %}" alt=""></a></li>
                     <li class="header-item"><a href="{% url 'space:index' %}" class="header-item-link"><i class="fa-solid fa-house fa-2xs"></i> Главная</a></li>
                     <li class="header-item"><a href="{% url 'space:museums' %}" class="header-item-link">Музеи / Планетарии</a></li>
                     <li class="header-item"><a href="{% url 'space:onlines' %}" class="header-item-link">Онлайн экскурсии</a></li>
@@ -34,9 +35,9 @@
     </div>
 
     <!-- background -->
-    <div class="stars"></div>
-    <div class="twinkling"></div>
+    <!-- <div class="stars"></div>
+    <div class="twinkling"></div> -->
 </body>
-{% include 'space/galaxy.html' %}
+
 
 </html>
