@@ -6,5 +6,6 @@ from space.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('space.urls', namespace='space'))
+    path('', include('space.urls', namespace='space')),
+    path('user/', include('users.urls', namespace='users')),
 ]

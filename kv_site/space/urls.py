@@ -10,10 +10,11 @@ app_name = 'space'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
-    path('contact/', contact, name='contact'),
-    path('museums/', museums, name='museums'),
-    path('online/', onlines, name='onlines'),
-    path('museums/place/id=<card_id>', place, name='place')
+    path('category/<category_name>/', category, name='category'),
+
+    path('place/id=<place_id>', place, name='place'),
+    path('place/rate/id=<place_id>', rate, name='rate'),
+    path('category/<category_name>', category, name='category')
 ]
 
 if settings.DEBUG:

@@ -1,0 +1,48 @@
+{% extends 'space/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="form-container reg">
+        <h1 class="h1 h1-padding-top">Профиль</h1>
+        <form action="{% url 'users:profile' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="grid">
+                <div class="form-group" style="margin-bottom: 0;">
+                    <div class="photo">
+                        <img class="profile-img" src="{% if user.img %} {{ user.img.url }} {% else %} {% static 'images/default_avatar.jpg' %} {% endif %}" alt="">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="label" for="{{ form.image.id_for_label }}">Фото</label>
+                    {{ form.image }}
+                </div>
+                <div class="form-group">
+                    <label class="label" for="{{ form.fist_name.id_for_label }}">Имя</label>
+                    {{ form.first_name }}
+                </div>
+                <div class="form-group">
+                    <label class="label" for="{{ form.last_name.id_for_label }}">Фамилия</label>
+                    {{ form.last_name }}          
+                </div>
+                <div class="form-group">
+                    <label class="label" for="{{ form.email.id_for_label }}">Почта</label>
+                    {{ form.email }}            
+                </div>
+                <div class="form-group">
+                    <label class="label" for="{{ form.username.id_for_label }}">Логин</label>
+                    {{ form.username }}            
+                </div>
+            </div>
+            <button class="btn" type="submit">
+                <span class="btn-text">Сохранить</span>
+            </button>
+        </form>
+    </div> 
+   
+{% endblock %}

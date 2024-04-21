@@ -3,7 +3,8 @@
     overflow: hidden;
     /* max-width: 600px; */
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
+    background-color: var(--main-black-bgcolor);
 }
 .slider__wrapper{
     position: relative;
@@ -13,6 +14,11 @@
 .slider__items{
     display: flex;
     transition: transform .5s ease
+}
+.slider__slide {
+    height: 300px;
+    padding-bottom: 40px;
+    background-color: var(--main-black-bgcolor);
 }
 .transition-none{
     transition: none
@@ -58,3 +64,4 @@
     flex:0 1 auto;width:30px;height:4px;margin-right:3px;margin-left:3px;background-color:rgba(255,255,255,.5);background-clip:padding-box;border-top:10px solid transparent;border-bottom:10px solid transparent;cursor:pointer
 }
 .slider__indicator_active{background-color:#fff}
+

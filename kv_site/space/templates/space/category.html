@@ -1,0 +1,29 @@
+{% extends 'space/base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="section__ctitle">
+  <div class="container">
+  </div>
+</section>
+<section class="section__last-places">
+    <div class="container" style="padding: 5px 0 40px;">
+      <h1 class="h1" style="color: #fff;">Категория: {{ title }}</h1>
+
+      <div class="cards grid-cols-4">
+        {% for place in places %}
+        <div class="card">
+          <div class="card__img-block">
+            <img src="{{ place.img.url }}" alt="" class="card__img">
+          </div>
+          <a href="{% url 'space:place' place_id=place.id %}" class="link"><h3 class="h3">{{ place.name }}</h3></a>
+        </div>
+        {% endfor %}
+      </div> 
+    </div>
+  </section>
+{% endblock %}

@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
     <link rel="stylesheet" href="{% static 'fontawesome/css/all.css' %}">
-    <link rel="stylesheet" href="{% static 'css/galaxy.css' %}">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/adaptive.css' %}">
     {% block css %} {% endblock %}
 </head>
 <body>
@@ -18,12 +18,18 @@
                 <ul class="header-items">
                     <li class="header-item img-item"><a href="{% url 'space:index' %}"><img class="small-img" src="{% static 'images/logo.png' %}" alt=""></a></li>
                     <li class="header-item"><a href="{% url 'space:index' %}" class="header-item-link"><i class="fa-solid fa-house fa-2xs"></i> Главная</a></li>
-                    <li class="header-item"><a href="{% url 'space:museums' %}" class="header-item-link">Музеи / Планетарии</a></li>
-                    <li class="header-item"><a href="{% url 'space:onlines' %}" class="header-item-link">Онлайн экскурсии</a></li>
+                    <li class="header-item category-header-item"><a href="{% url 'space:category' category_name='planetarium' %}" class="header-item-link">Планетарии</a></li>
+                    <li class="header-item category-header-item"><a href="{% url 'space:category' category_name='museum' %}" class="header-item-link">Музеи</a></li>
+                    <li class="header-item category-header-item"><a href="{% url 'space:category' category_name='online' %}" class="header-item-link">Экскурсии</a></li>
                 </ul>
+                
                 <ul class="header-items">
-                    <li class="header-item"><a href="{% url 'space:contact' %}" class="header-item-link">Связаться с нами</a></li>
-                    <li class="header-item" style="margin-right: 0;"><a href="" class="header-item-link">О нас</a></li>
+                    {% if user.is_authenticated %}
+                    <li class="header-item" style="margin-right: 0;"><a href="{% url 'users:logout' %}" class="header-item-link">Выйти</a></li>
+                    {% else %}
+                    <li class="header-item"><a href="{% url 'users:login' %}" class="header-item-link">Вход</a></li>
+                    <li class="header-item" style="margin-right: 0;"><a href="{% url 'users:registration' %}" class="header-item-link">Регистрация</a></li>
+                    {% endif %}
                 </ul>
             </nav>
         </div>
@@ -34,9 +40,17 @@
         {% block content %} {% endblock %}
     </div>
 
-    <!-- background -->
-    <!-- <div class="stars"></div>
-    <div class="twinkling"></div> -->
+    <footer class="footer">
+        <div class="container">
+            <nav class="nav">
+                <ul class="header-items">
+                    <li class="header-item"><a href="" class="header-item-link">Связаться с нами</a></li>
+                    <li class="header-item"><a href="" class="header-item-link">О нас</a></li>
+                    <!-- <li class="header-item"><a href="" class="header-item-link">Политика использования</a></li> -->
+                </ul>
+            </nav>
+        </div>
+    </footer>
 </body>
 
 
