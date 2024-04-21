@@ -6,17 +6,81 @@
 {% endblock %}
 
 {% block content %}
-    <div class="margin"></div>
-    <div class="float">
-        <div class="inner">
-            <div class="flex">
-                <h1 class="h1 underline">{{ card.name }}</h1>
-                <img src="{{ card.img.url }}" alt="" class="image-box">
+<section class="section__place">
+    <div class="block">
+        <h1 class="h1" style="margin-top: 0;">{{ place.name }}</h1>
+
+        <div class="place-grid-main">
+            <div class="place-img-block">
+                <img src="{{ place.img.url }}" alt="" class="img__block" width="240px">
             </div>
-            <p class="p">{{ card.desc }}</p>
-            {% if not card.is_online %}
-                <span class="span"><span class="span c-orange">Адрес: </span>{{ card.address }}</span>
-            {% endif %}
-        </div> 
+            <div>
+                <table class="place__table">
+                    <tr class="tr">
+                        <td class="td">
+                            <h4 class="h4"  style="font-weight: 100;">Вид</h4>
+                        </td>
+                        <td class="td">
+                            <h2 class="h2">{{ place.category }}</h2>
+                        </td>
+                    </tr>
+                    <tr class="tr">
+                        <td class="td">
+                            <h4 class="h4" style="font-weight: 100;">Оценка</h4>
+                        </td>
+                        <td class="td">
+                            <h2 class="h2" style="font-family: Tahoma;">{{ place.rate }} <i class="fa-regular fa-star fa-2xs"></i></h2>
+                        </td>
+                    </tr>
+                    <tr class="tr">
+                        <td class="td">
+                            <h4 class="h4" style="font-weight: 100;">Статус</h4>
+                        </td>
+                        <td class="td">
+                            <h2 class="h2">{% if place.is_online %} Онлайн {% else %} Офлайн {% endif %}</h2>
+                        </td>
+                    </tr>
+                    
+                    {% if place.address != 'None' %}
+                    <tr class="tr">
+                        <td class="td">
+                            <h4 class="h4" style="font-weight: 100;">Адрес</h4>
+                        </td>
+                        <td class="td">
+                            <h2 class="h2">{{ place.address }}</h2>
+                        </td>
+                    </tr>
+                    {% endif %}
+                </table>
+                
+            </div>
+        </div>
     </div>
+</section>
+<section class="section__description">
+    <div class="block">
+        {% if user.is_authenticated %}
+        <h2 class="h2">Поставьте свою оценку:</h2>
+        <form action="{% url 'space:rate' place_id=place.id %}" method="post">
+            {% csrf_token %}
+            <div class="grid-cols-2" style="grid-template-columns: 200px auto;">
+                <div class="rating__group flex">
+                    <input class="rating__star" type="radio" name="rate" value="1">
+                    <input class="rating__star" type="radio" name="rate" value="2">
+                    <input class="rating__star" type="radio" name="rate" value="3">
+                    <input class="rating__star" type="radio" name="rate" value="4">
+                    <input class="rating__star" type="radio" name="rate" value="5" checked>
+                </div>
+                <button class="button__round" type="submit" style="width: max-content;">
+                    <span class="btn-text">Сохранить</span>
+                </button>     
+            </div>
+             
+        </form>  
+        {% endif %}
+    
+        <h2 class="h2">Описание</h2>
+        <p class="p">{{ place.description }}</p>
+    </div>
+</section>
 {% endblock %}

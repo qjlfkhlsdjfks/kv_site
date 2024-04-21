@@ -1,23 +1,27 @@
 from django.db import models
+from django.utils import timezone
 
 
-class Card(models.Model):
-    name = models.CharField(max_length=100)
-    desc = models.TextField()
-    is_online = models.BooleanField(null=True)
-    address = models.CharField(max_length=60, null=True)
-    img = models.ImageField(upload_to='images')
+class Category(models.Model):
+    name = models.CharField(max_length=30)
+    cname = models.CharField(max_length=30, null=True)
+
+    class Meta:
+        verbose_name_plural = 'Categories'
 
     def __str__(self) -> str:
-        if self.is_online:
-            return f'{self.name} | Online'
-        
-        return f'{self.name} | Offline'
+        return self.name
 
 
-class ContactUs(models.Model):
-    email = models.CharField(max_length=100)
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    about = models.TextField()
-    comments = models.TextField()
+class Place(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    name = models.CharField(max_length=200)
+    description = models.TextField()
+    rate = models.PositiveIntegerField(null=True)
+    is_online = models.BooleanField(default=False)
+    address = models.CharField(max_length=60, null=True)
+    img = models.ImageField(upload_to='images')
+    date_created = models.DateTimeField(default=timezone.now)
+
+    def __str__(self) -> str:
+        return self.name
